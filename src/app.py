@@ -61,6 +61,8 @@ def meme_post():
     body = request.form.get("body")
     author = request.form.get("author")
 
+    if not os.path.isdir("./tmp"):
+        os.mkdir("./tmp")
     tmp_path = "./tmp/pic.png"
     # Get image from url with requests
     urllib.request.urlretrieve(image_url, tmp_path)
