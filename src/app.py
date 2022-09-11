@@ -4,7 +4,7 @@ import os
 import sys
 import requests
 from flask import Flask, render_template, abort, request
-import urllib.request
+import urllib
 from PIL import Image
 
 from QuoteEngine import Ingestor, QuoteModel
@@ -64,8 +64,13 @@ def meme_post():
     if not os.path.isdir("./tmp"):
         os.mkdir("./tmp")
     tmp_path = "./tmp/pic.png"
+
     # Get image from url with requests
-    urllib.request.urlretrieve(image_url, tmp_path)
+    try:
+        urllib.request.urlretrieve(image_url, tmp_path)
+    except urllib.error.HTTPError:
+        print("Oooops, there seems to be a problem with your url")
+        return "Invalid Img URL"
 
     # Use the meme object to generate a meme using this temp file
     # and the body and author form paramaters.

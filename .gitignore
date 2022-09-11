@@ -1,1 +1,8 @@
+# Ignore static content of Website
 src/static/
+
+# VSCode Settings
+.vscode/
+
+# Ignore pycache
+*.pyc
