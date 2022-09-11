@@ -67,7 +67,8 @@ def meme_post():
     # Get image from url with requests
     urllib.request.urlretrieve(image_url, tmp_path)
 
-    # Use the meme object to generate a meme using this temp file and the body and author form paramaters.
+    # Use the meme object to generate a meme using this temp file
+    # and the body and author form paramaters.
     path = meme.make_meme(tmp_path, body, author)
 
     # Remove the temporary saved image.

@@ -12,7 +12,12 @@ class MemeEngine:
         """Initialize Meme Engine."""
         self.output_dir = output_dir
 
-    def make_meme(self, img_path: str, text: str, author: str, width: int = 500) -> str:  # generated image path
+    def make_meme(self,
+                  img_path: str,
+                  text: str,
+                  author: str,
+                  width: int = 500
+                  ) -> str:  # generated image path
         """Create a Meme from a picture and a Quote.
 
         Arguments:
@@ -26,10 +31,12 @@ class MemeEngine:
         im = Image.open(img_path)
         if im.width > width:
             resize_factor = width / im.width
-            im = im.resize((int(im.width * resize_factor), int(im.height * resize_factor)))
+            im = im.resize(
+                (int(im.width * resize_factor),
+                 int(im.height * resize_factor)))
 
         # text
-        # make a blank image for the text, initialized to transparent text color
+        # make a blank image for the text, init to transparent text color
         txt = Image.new("RGBA", im.size, (0, 0, 0, 0))
         fnt = ImageFont.truetype("./_fonts/LilitaOne-Regular.ttf", 38)
         d = ImageDraw.Draw(txt, mode="RGBA")
@@ -45,8 +52,20 @@ class MemeEngine:
 
         # Plotting
         _fill = (255, 255, 255, 255)
-        d.text((int(im.width/2), 10), text, font=fnt, fill=_fill, align="center", anchor="ma")
-        d.text((int(im.width/2), im.height-10), author, font=fnt, fill=_fill, align="center", anchor="md")
+        d.text(
+            (int(im.width/2), 10),
+            text,
+            font=fnt,
+            fill=_fill,
+            align="center",
+            anchor="ma")
+        d.text(
+            (int(im.width/2), im.height-10),
+            author,
+            font=fnt,
+            fill=_fill,
+            align="center",
+            anchor="md")
 
         im = im.convert("RGBA")
         final = Image.alpha_composite(im, txt)

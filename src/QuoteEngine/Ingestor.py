@@ -3,7 +3,8 @@
 from typing import List
 
 from .IngestorInterface import IngestorInterface
-from QuoteEngine import QuoteModel, DocxIngestor, CSVIngestor, TXTIngestor, PDFIngestor
+from QuoteEngine import (QuoteModel, DocxIngestor, CSVIngestor, TXTIngestor,
+                         PDFIngestor)
 
 DEBUG = False
 

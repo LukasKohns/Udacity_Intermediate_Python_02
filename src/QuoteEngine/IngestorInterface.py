@@ -12,7 +12,7 @@ class IngestorInterface(ABC):
 
     @classmethod
     def can_ingest(cls, path) -> boolean:
-        """Return whether or not there is an ingestor available for this filetype."""
+        """Return whether there is an ingestor available for this filetype."""
         ext = path.split(".")[-1]
         return ext in cls.allowed_extensions
 

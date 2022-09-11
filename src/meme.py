@@ -53,10 +53,20 @@ def generate_meme(path=None, body=None, author=None):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
-        description="Run to generate a random Meme. You can choose a path, body or author if you want.")
-    parser.add_argument("-p", "--path", type=str, default=None, help="Give a path to a specific image you want to use.")
-    parser.add_argument("-b", "--body", type=str, default=None, help="Give a specific text body you want to use.")
-    parser.add_argument("-a", "--author", type=str, default=None, help="Give a specific author you want to use.")
+        description="Run to generate a random Meme. You can choose a path,\n"
+                    "body or author if you want.")
+    parser.add_argument(
+        "-p", "--path",
+        type=str, default=None,
+        help="Give a path to a specific image you want to use.",)
+    parser.add_argument(
+        "-b", "--body",
+        type=str, default=None,
+        help="Give a specific text body you want to use.",)
+    parser.add_argument(
+        "-a", "--author",
+        type=str, default=None,
+        help="Give a specific author you want to use.",)
 
     args = parser.parse_args()
 
