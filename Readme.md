@@ -6,6 +6,8 @@
 
 ## Project Overview
 This Project is a Meme Generator that can be used through the command line or a web application.
+It can create pictures like this:
+![demo pic](./233198327.jpg)
 
 
 ## Instructions for setting up and running the program
